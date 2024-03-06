@@ -1,0 +1,1 @@
+Projekat se zasniva na permisijama. Svaki korisnik ima odredjene permisije i na osnovu permisija ima razlicite mogucnosti. Permisije su vezane za korisnike i usisivace. Admin moze da upravlja korinsicima i svim usisivacima.
