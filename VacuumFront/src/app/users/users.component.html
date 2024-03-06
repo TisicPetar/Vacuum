@@ -1,0 +1,24 @@
+<!-- Add the Bootstrap table classes -->
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>
+        <button class="btn btn-primary" *ngIf="checkEditPermition()" (click)="editUser(user.id, user.username)">Edit</button>
+      </td>
+      <td>
+        <button class="btn btn-primary" *ngIf="checkDeletePermition()" (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+    <button class="btn btn-primary mt-3" *ngIf="checkCreatePermision()" (click)="addUser()">Create User</button>
+  </tbody>
+</table>

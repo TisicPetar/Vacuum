@@ -1,0 +1,58 @@
+<div>
+    <h2>Search Vacuum</h2>
+    
+    <form (ngSubmit)="searchVacuums()">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="formData.name"><br>
+        <label>Status:</label>
+        <label><input type="radio" name="status" [(ngModel)]="formData.status" value="RUNNING"> RUNNING</label>
+        <label><input type="radio" name="status" [(ngModel)]="formData.status" value="STOPPED"> STOPPED</label>
+        <label><input type="radio" name="status" [(ngModel)]="formData.status" value="DISCHARGING"> DISCHARGING</label>
+
+      </div>
+    
+      <div>
+        <label for="dateFrom">dateFrom:</label>
+        <input type="number" id="dateFrom" name="dateFrom" [(ngModel)]="formData.dateFrom">
+        <label for="dateTo">dateTo:</label>
+        <input type="number" id="dateTo" name="dateTo" [(ngModel)]="formData.dateTo">
+      </div>
+    
+      <button type="submit">Search</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Actions</th>
+          <th>ScheduleTime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vacuum of vacuums">
+          <td>{{ vacuum.id }}</td>
+          <td>{{ vacuum.name }}</td>
+          <td>{{ vacuum.status.status }}</td>
+          <td>
+            <button (click)="runVacuum(vacuum.id)">RUN  </button>
+            <button (click)="stopVacuum(vacuum.id)">STOP  </button>
+            <button (click)="dischargeVacuum(vacuum.id)">DISCHARGE  </button>
+            <button (click)="scheduleRun(vacuum.id)">SCHEDULE-RUN  </button>
+            <button (click)="scheduleStop(vacuum.id)">SCHEDULE-STOP  </button>
+            <button (click)="scheduleDischarge(vacuum.id)">SCHEDULE-DISCHARGE  </button>
+            <button (click)="removeVacuum(vacuum.id)">REMOVE</button>
+          </td>
+          <td>
+            Month: <input type="number" [(ngModel)]="month" name="scheduleDateMontsh">
+            Day: <input type="number" [(ngModel)]="day" name="scheduleDateDays">
+            Houre: <input type="number" [(ngModel)]="houres" name="scheduleDateHoures">
+            Minut: <input type="number" [(ngModel)]="minutes" name="scheduleDateMinutes">
+            Second: <input type="number" [(ngModel)]="seconds" name="scheduleDateSeconds">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

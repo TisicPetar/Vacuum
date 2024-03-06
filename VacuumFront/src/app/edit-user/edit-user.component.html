@@ -1,0 +1,139 @@
+<div class="container mt-4">
+    <h2>Edit User</h2>
+  
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" class="form-control" formControlName="username" required [(ngModel)]="oldname">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Permission</label>
+  
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="image"
+            value="1"
+            (change)="handleIncludeCheck($event)"
+            [(ngModel)]="read"
+          />
+          <label class="form-check-label">Read</label>
+        </div>
+        
+        <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="image"
+              value="2"
+              (change)="handleIncludeCheck($event)"
+              [(ngModel)]="write"
+            />
+            <label class="form-check-label">Write</label>
+          </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="abstract"
+          value="3"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="update"
+        />
+        <label class="form-check-label">Update</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="categories"
+          value="4"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="deleteP"
+        />
+        <label class="form-check-label">Delete</label>
+      </div>
+      -----------------------------------------------
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="categories"
+          value="5"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="add"
+        />
+        <label class="form-check-label">Add</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="categories"
+          value="6"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="remove"
+        />
+        <label class="form-check-label">Remove</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="categories"
+          value="7"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="start"
+        />
+        <label class="form-check-label">Start</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="categories"
+          value="8"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="stop"
+        />
+        <label class="form-check-label">Stop</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="categories"
+          value="9"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="discharge"
+        />
+        <label class="form-check-label">Discharge</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="categories"
+          value="10"
+          (change)="handleIncludeCheck($event)"
+          [(ngModel)]="search"
+        />
+        <label class="form-check-label">Search</label>
+      </div>
+    </div>
+  
+      <div>
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Edit User</button>
+      </div>
+    </form>
+  </div>
